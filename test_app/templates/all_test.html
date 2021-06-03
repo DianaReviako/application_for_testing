@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+    {% block title %}
+    <title>All available test</title>
+    {% endblock title %}
+<body>
+{% block content %}
+ {% for test in tests %}
+    <p>{{ test }}</p>
+    {% endfor %}
+{% endblock content %}
+</body>

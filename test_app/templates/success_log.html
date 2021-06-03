@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+    {% block title %}
+    <title>Hello</title>
+    {% endblock title %}
+<body>
+{% block content %}
+    {% if user.is_authenticated %}
+        <p>Hello, {{ user.username }}! Do you want to<a href="{% url 'add_test' %}"> add a test</a> Or <a href="{% url 'all_test' %}"> see tests already created</a></p>
+        <p><a href="">Log out?</a></p>
+    {% endif %}
+{% endblock content %}
+</body>

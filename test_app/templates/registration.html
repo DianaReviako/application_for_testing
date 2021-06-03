@@ -7,7 +7,7 @@
     <form id="registration"   method="post">
         {% csrf_token %}
         {{ form.as_p }}
-    <input type="submit" value="Register">
-</form>
+    </form>
+    <input form="registration" type="submit" value="Sign up">
 {% endblock content %}
 </body>

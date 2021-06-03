@@ -4,5 +4,10 @@
     {% endblock title %}
 <body>
 {% block content %}
+    <form id="login"   method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+    </form>
+    <input form="login" type="submit" value="Sign in">
 {% endblock content %}
 </body>

@@ -4,6 +4,10 @@
     {% endblock title %}
 <body>
 {% block content %}
-{{ test.title }}
+    <form id="add_test"   method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+    </form>
+    <input form="add_test" type="submit" value="Add test">
 {% endblock content %}
 </body>
