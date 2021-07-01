@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+    {% block title %}
+    <title>Hello</title>
+    {% endblock title %}
+<body>
+{% block content %}
+
+     <p>Hello {{ user_result.user }}! It is your answers on test {{ user_result.test }}</p>
+     <p>Your test score: {{ test_score }}</p>
+{% endblock content %}
+</body>

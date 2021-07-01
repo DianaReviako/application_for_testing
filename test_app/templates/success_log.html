@@ -5,8 +5,9 @@
 <body>
 {% block content %}
     {% if user.is_authenticated %}
-        <p>Hello, {{ user.username }}! Do you want to<a href="{% url 'add_test' %}"> add a test</a> Or <a href="{% url 'all_test' %}"> see tests already created</a></p>
-        <p><a href="">Log out?</a></p>
+        <p>Hello, {{ user.username }}! Do you want to<a href="{% url 'add_test' %}"> add a test?</a></p>
+        <p>Or <a href="{% url 'all_test' %}"> see already created tests?</a></p>
+        <p><a href="{% url 'logout' %}">Log out?</a></p>
     {% endif %}
 {% endblock content %}
 </body>

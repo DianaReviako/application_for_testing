@@ -4,6 +4,22 @@
     {% endblock title %}
 <body>
 {% block content %}
-<p>This is {{ test }}</p>
+    <p><b>Test name {{ test }}</b></p>
+    <ol>
+        {% for question in questions %}
+    <li>{{ question }}</li>
+            {% for answer in question.answer_set.all %}
+                <p>{{ answer }}</p>
+        {% endfor %}
+        {% endfor %}
+    </ol>
+    {% if not questions %}
+    <p><a href="{% url 'add_question' %}">Add a question for this test?</a></p>
+    {% else %}
+    <p><a href="{% url 'add_answer' %}">Add an answer for question?</a></p>
+    <p><a href="{% url 'add_question' %}">Add a question for this test?</a></p>
+    <p><a href="{% url 'all_test' %}">Ready</a></p>
+    {% endif %}
+
 {% endblock content %}
 </body>

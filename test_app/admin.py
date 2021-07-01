@@ -3,18 +3,22 @@ from .models import Test, Question, Answer, UserAnswer
 
 
 class TestAdmin(admin.ModelAdmin):
-    fields = ['title']
+    fields = ('title', )
 
 
 class QuestionAdmin(admin.ModelAdmin):
-    fields = ('test', 'type', 'text')
+    list_display = ['test', 'type', 'text']
 
 
 class AnswerAdmin(admin.ModelAdmin):
-    fields = ('question', 'text', 'correct')
+    list_display = ['question', 'text', 'correct']
+
+
+class UserAnswerAdmin(admin.ModelAdmin):
+    list_display = ['user', 'test', 'question', 'answer']
 
 
 admin.site.register(Test, TestAdmin)
 admin.site.register(Question, QuestionAdmin)
 admin.site.register(Answer, AnswerAdmin)
-admin.site.register(UserAnswer)
+admin.site.register(UserAnswer, UserAnswerAdmin)

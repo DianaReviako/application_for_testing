@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+    {% block title %}
+    <title>All available test</title>
+    {% endblock title %}
+<body>
+{% block content %}
+    {% if test_already_passed %}
+    <p>You have already passed this test and cannot take it again.</p>
+        {% elif UnboundLocalError%}
+        {{ no_answer }}
+    {% else %}
+    <p><b>Test name {{ test }}</b></p>
+    <form id="test" method="post" action="{% url 'save_result' %}">
+    <input type="hidden" name="test_id" value="{{ test.id }}">
+    {% csrf_token %}
+    <ol>
+        {% for question in test.question_set.all %}
+    <li><b>{{ question }}</b></li>
+
+            {% for answer in question.answer_set.all %}
+                    <p><input type="checkbox" name="{{ question.id }}#{{ answer.id }}">{{ answer }}</p>
+
+        {% endfor %}
+
+        {% endfor %}
+    </ol>
+    </form>
+    <p><input type="submit" form="test" value="Send a reply"></p>
+    {% endif %}
+{% endblock content %}
+</body>

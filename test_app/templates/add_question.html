@@ -1,14 +1,13 @@
 {% extends 'base.html' %}
     {% block title %}
-    <title>Add test</title>
+    <title>Add question</title>
     {% endblock title %}
 <body>
 {% block content %}
-    <form id="add_test"   method="post">
+ <form id="add_question"   method="post">
         {% csrf_token %}
         {{ form.as_p }}
-        {{ question_form_class.as_p }}
     </form>
-    <input form="add_test" type="submit" value="Add test">
+    <input form="add_question" type="submit" value="Add question">
 {% endblock content %}
 </body>
